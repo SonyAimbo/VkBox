@@ -1,0 +1,38 @@
+{
+	"manifest_version": 2,
+
+	"name": "VkBox",
+	"description": "Упращает использование социальной сети Вконтакте (vk.com).",
+	"version": "1.0.0",
+	"minimum_chrome_version": "45",
+
+	"icons": {
+      "128": "vk-128.png",
+      "16": "vk-16.png"
+   },
+
+	"background": {
+		"scripts": ["scripts/background.js"],
+		"persistent": false
+	},
+
+	"content_scripts": [{
+	    "js": ["scripts/VkBox.js"],
+	    "matches": ["*://vk.com/*","*://*.vk.com/*"]
+  }],
+
+	"web_accessible_resources": [
+			"scripts/*",
+			"scripts/VkComments.js",
+			"scripts/VkInject.js",
+			"scripts/test.html",
+			"css/*",
+			"css/main.css"
+	],
+	"permissions": [
+			"tabs",
+			"storage",
+			"*://*.vk.me/*", "*://vk.com/*", "*://*.vk.com/*"
+	]
+
+}
